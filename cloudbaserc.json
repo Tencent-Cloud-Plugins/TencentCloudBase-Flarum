@@ -11,6 +11,7 @@
           "servicePath": "/",
           "uploadType": "image",
           "cpu": 1,
+          "mem": 2,
           "imageInfo": {
             "imageUrl": "ccr.ccs.tencentyun.com/tcbimages/flarum-tcb:1.0"
           },
