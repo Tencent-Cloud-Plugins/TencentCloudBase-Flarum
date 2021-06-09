@@ -1,0 +1,82 @@
+{
+  "version": "2.0",
+  "envId": "{{env.ENV_ID}}",
+  "framework": {
+    "name": "Flarum",
+    "plugins": {
+      "client": {
+        "use": "@cloudbase/framework-plugin-container",
+        "inputs": {
+          "serviceName": "flarum",
+          "servicePath": "/",
+          "uploadType": "image",
+          "cpu": 1,
+          "imageInfo": {
+            "imageUrl": "ccr.ccs.tencentyun.com/tcbimages/flarum-tcb:1.0"
+          },
+          "containerPort": 8888,
+          "envVariables": {
+            "DB_HOST": "{{env.DB_IP}}",
+            "DB_NAME": "tcb_flarum",
+            "DB_PREF": "fla",
+            "DB_PORT": "{{env.DB_PORT}}",
+            "DB_USER": "{{env.MYSQL_USERNAME}}",
+            "DB_PASS": "{{env.MYSQL_PASSWORD}}",
+            "FLARUM_ADMIN_USER": "{{env.FLARUM_ADMIN_USER}}",
+            "FLARUM_ADMIN_PASS": "{{env.FLARUM_ADMIN_PASS}}",
+            "FLARUM_ADMIN_MAIL": "admin@admin.com",
+            "FORUM_URL": "https://${TcbHttpServiceDefaultDomain}",
+            "FORUM_CDN": "https://${TcbHttpServiceDefaultDomain}",
+            "FLARUM_PORT": "8888",
+            "FLARUM_TITLE": "Flarum",
+            "TCB_NOT_SHOW_CYNOS_DB": "${Outputs.flarum.Properties.InstanceId}"
+          },
+          "volumeMounts": {
+            "/flarum/app/extensions": "flarum-extensions-cfs",
+            "/flarum/app/public/assets": "flarum-assets-cfs",
+            "/flarum/app/storage/logs": "flarum--logs-cfs"
+          },
+          "initialDelaySeconds": 10
+        }
+      }
+    },
+    "requirement": {
+      "addons": [
+        {
+          "type": "CynosDB",
+          "name": "yourls",
+          "envMap": {
+            "IP": "DB_IP",
+            "PORT": "DB_PORT",
+            "USERNAME": "MYSQL_USERNAME",
+            "PASSWORD": "MYSQL_PASSWORD"
+          }
+        },
+        {
+          "type": "CFS",
+          "name": "flarum-extensions-cfs"
+        },
+        {
+          "type": "CFS",
+          "name": "flarum-assets-cfs"
+        },
+        {
+          "type": "CFS",
+          "name": "flarum--logs-cfs"
+        }
+      ],
+      "environment": {
+        "FLARUM_ADMIN_USER": {
+          "description": "用户账号",
+          "required": true,
+          "default": "admin"
+        },
+        "FLARUM_ADMIN_PASS": {
+          "description": "用户密码",
+          "required": true,
+          "default": "admin@123"
+        }
+      }
+    }
+  }
+}
