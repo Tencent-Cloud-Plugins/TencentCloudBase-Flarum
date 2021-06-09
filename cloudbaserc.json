@@ -17,7 +17,7 @@
           "containerPort": 8888,
           "envVariables": {
             "DB_HOST": "{{env.DB_IP}}",
-            "DB_NAME": "tcb_flarum",
+            "DB_NAME": "tcb-flarum",
             "DB_PREF": "fla",
             "DB_PORT": "{{env.DB_PORT}}",
             "DB_USER": "{{env.MYSQL_USERNAME}}",
