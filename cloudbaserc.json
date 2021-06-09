@@ -44,7 +44,7 @@
       "addons": [
         {
           "type": "CynosDB",
-          "name": "yourls",
+          "name": "flarum",
           "envMap": {
             "IP": "DB_IP",
             "PORT": "DB_PORT",
