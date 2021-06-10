@@ -13,7 +13,7 @@
           "cpu": 1,
           "mem": 2,
           "imageInfo": {
-            "imageUrl": "ccr.ccs.tencentyun.com/tcbimages/flarum-tcb:1.1"
+            "imageUrl": "ccr.ccs.tencentyun.com/tcbimages/flarum-tcb:1.0"
           },
           "containerPort": 8888,
           "envVariables": {
@@ -27,7 +27,6 @@
             "FLARUM_ADMIN_PASS": "{{env.FLARUM_ADMIN_PASS}}",
             "FLARUM_ADMIN_MAIL": "admin@admin.com",
             "FORUM_URL": "https://${TcbHttpServiceDefaultDomain}",
-            "FORUM_CDN": "https://${TcbHttpServiceDefaultDomain}",
             "FLARUM_PORT": "8888",
             "FLARUM_TITLE": "Flarum",
             "TCB_NOT_SHOW_CYNOS_DB": "${Outputs.flarum.Properties.InstanceId}"
