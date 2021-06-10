@@ -13,7 +13,7 @@
           "cpu": 1,
           "mem": 2,
           "imageInfo": {
-            "imageUrl": "ccr.ccs.tencentyun.com/tcbimages/flarum-tcb:1.0"
+            "imageUrl": "ccr.ccs.tencentyun.com/tcbimages/flarum-tcb:1.1"
           },
           "containerPort": 8888,
           "envVariables": {
