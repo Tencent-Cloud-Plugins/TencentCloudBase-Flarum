@@ -34,7 +34,7 @@
           "volumeMounts": {
             "/flarum/app/extensions": "flarum-extensions-cfs",
             "/flarum/app/public/assets": "flarum-assets-cfs",
-            "/flarum/app/storage/logs": "flarum--logs-cfs"
+            "/flarum/app/storage/logs": "flarum-logs-cfs"
           },
           "initialDelaySeconds": 10
         }
@@ -62,7 +62,7 @@
         },
         {
           "type": "CFS",
-          "name": "flarum--logs-cfs"
+          "name": "flarum-logs-cfs"
         }
       ],
       "environment": {
